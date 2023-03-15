@@ -10,6 +10,11 @@ namespace eCommerce.Data
              
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder
+                .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=eCommerce;Integrated Security=True;Pooling=False");
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
